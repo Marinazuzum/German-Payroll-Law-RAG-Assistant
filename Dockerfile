@@ -16,8 +16,9 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Download NLTK data
+# Download NLTK data and pre-download sentence transformer model
 RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
 
 # Copy application code
 COPY . .

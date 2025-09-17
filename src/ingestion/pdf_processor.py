@@ -14,6 +14,10 @@ import logging
 
 from config import settings
 
+# Disable ChromaDB telemetry at module level
+os.environ['ANONYMIZED_TELEMETRY'] = 'FALSE'
+os.environ['CHROMA_CLIENT_ANONYMIZED_TELEMETRY'] = 'FALSE'
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -31,7 +35,10 @@ class PDFProcessor:
         # Initialize ChromaDB
         self.chroma_client = chromadb.PersistentClient(
             path=settings.chroma_persist_directory,
-            settings=ChromaSettings(allow_reset=True)
+            settings=ChromaSettings(
+                allow_reset=True,
+                anonymized_telemetry=False  # Disable telemetry to prevent errors
+            )
         )
         
         # Create or get collection
@@ -86,12 +93,13 @@ class PDFProcessor:
         # Check if hash exists in collection metadata
         try:
             results = self.collection.query(
-                query_texts=[""],
+                query_texts=["dummy"],  # Fixed: empty string causes issues
                 n_results=1,
                 where={"document_hash": doc_hash}
             )
             return len(results['ids'][0]) > 0
-        except:
+        except Exception as e:
+            logger.warning(f"Error checking if document processed: {e}")
             return False
     
     def process_pdf(self, pdf_path: str) -> Dict[str, Any]:
@@ -192,7 +200,7 @@ class PDFProcessor:
             # Get sample documents to analyze
             if count > 0:
                 sample_results = self.collection.query(
-                    query_texts=[""],
+                    query_texts=["dummy"],  # Fixed: empty string causes issues
                     n_results=min(10, count)
                 )
                 

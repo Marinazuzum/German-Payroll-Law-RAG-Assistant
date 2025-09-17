@@ -1,4 +1,4 @@
-version: '3.8'
+# Docker Compose for German Payroll Law RAG Assistant
 
 services:
   # Main RAG Application
@@ -15,6 +15,8 @@ services:
       - CHROMA_SERVER_HOST=chromadb
       - CHROMA_SERVER_PORT=8000
       - DOCKER_ENVIRONMENT=true
+      - ANONYMIZED_TELEMETRY=FALSE
+      - CHROMA_CLIENT_ANONYMIZED_TELEMETRY=FALSE
     volumes:
       - ./data:/app/data
       - ./config.py:/app/config.py:ro
@@ -43,6 +45,8 @@ services:
       - CHROMA_SERVER_HOST=chromadb
       - CHROMA_SERVER_PORT=8000
       - DOCKER_ENVIRONMENT=true
+      - ANONYMIZED_TELEMETRY=FALSE
+      - CHROMA_CLIENT_ANONYMIZED_TELEMETRY=FALSE
     volumes:
       - ./data:/app/data
       - ./config.py:/app/config.py:ro
@@ -84,6 +88,10 @@ services:
       - CHROMA_SERVER_HOST=chromadb
       - CHROMA_SERVER_PORT=8000
       - DOCKER_ENVIRONMENT=true
+      - ANONYMIZED_TELEMETRY=FALSE
+      - CHROMA_CLIENT_ANONYMIZED_TELEMETRY=FALSE
+      - ANONYMIZED_TELEMETRY=FALSE
+      - CHROMA_CLIENT_ANONYMIZED_TELEMETRY=FALSE
     volumes:
       - ./data:/app/data
       - ./config.py:/app/config.py:ro

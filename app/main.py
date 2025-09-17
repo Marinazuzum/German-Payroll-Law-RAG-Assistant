@@ -91,11 +91,26 @@ if 'metrics_collector' not in st.session_state:
     st.session_state.metrics_collector = MetricsCollector()
 
 if 'retriever' not in st.session_state:
+    st.session_state.retriever_loading = True
+    
+    # Show loading indicator
+    loading_placeholder = st.empty()
+    loading_placeholder.info("🔄 Loading retrieval system... Please wait.")
+    
     try:
         st.session_state.retriever = HybridRetriever()
+        st.session_state.retriever_error = None
+        loading_placeholder.success("✅ Retrieval system loaded successfully!")
+        # Clear the message after a short delay
+        import time
+        time.sleep(1)
+        loading_placeholder.empty()
     except Exception as e:
         st.session_state.retriever = None
         st.session_state.retriever_error = str(e)
+        loading_placeholder.error(f"❌ Failed to load retrieval system: {e}")
+    
+    st.session_state.retriever_loading = False
 
 if 'llm_client' not in st.session_state:
     try:
@@ -126,7 +141,7 @@ def main():
             st.success("✅ Retrieval System")
         else:
             st.error("❌ Retrieval System")
-            if hasattr(st.session_state, 'retriever_error'):
+            if hasattr(st.session_state, 'retriever_error') and st.session_state.retriever_error:
                 st.error(f"Error: {st.session_state.retriever_error}")
         
         if st.session_state.llm_client:

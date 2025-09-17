@@ -31,7 +31,13 @@ class HybridRetriever:
     """Hybrid retrieval system combining vector search, keyword search, and re-ranking."""
     
     def __init__(self):
-        self.embedding_model = SentenceTransformer(settings.embedding_model)
+        logger.info(f"Loading embedding model: {settings.embedding_model}")
+        try:
+            self.embedding_model = SentenceTransformer(settings.embedding_model)
+            logger.info("Embedding model loaded successfully")
+        except Exception as e:
+            logger.error(f"Failed to load embedding model: {e}")
+            raise
         
         # Initialize ChromaDB
         # Try to connect to ChromaDB server first, fallback to local persistent client
