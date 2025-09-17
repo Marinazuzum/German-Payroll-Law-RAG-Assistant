@@ -338,9 +338,14 @@ def main():
                     if st.checkbox(f"Show Source Documents", key=f"sources_{i}"):
                         st.markdown("**📚 Source Documents:**")
                         for j, doc in enumerate(item['retrieved_docs'][:3]):  # Show top 3
+                            # Get file name from metadata, fallback to generic name
+                            file_name = doc.get('metadata', {}).get('file_name', f'Document {j+1}')
+                            if file_name.endswith('.pdf'):
+                                file_name = file_name[:-4]  # Remove .pdf extension for cleaner display
+                            
                             st.markdown(f"""
                             <div class="source-box">
-                                <strong>Document {j+1}</strong> (Score: {doc.get('combined_score', doc.get('score', 0)):.3f})<br>
+                                <strong>📄 {file_name}</strong> (Score: {doc.get('combined_score', doc.get('score', 0)):.3f})<br>
                                 {doc['content'][:300]}{'...' if len(doc['content']) > 300 else ''}
                             </div>
                             """, unsafe_allow_html=True)
