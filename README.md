@@ -215,11 +215,6 @@ CHUNK_SIZE=1000
 CHUNK_OVERLAP=200
 TOP_K_RETRIEVAL=5
 RERANK_TOP_K=3
-
-# Storage Paths
-CHROMA_PERSIST_DIRECTORY=./data/chroma_db
-PDF_DATA_PATH=./data/raw
-PROCESSED_DATA_PATH=./data/processed
 ```
 
 ### Prompt Strategies

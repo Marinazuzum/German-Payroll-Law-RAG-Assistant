@@ -362,24 +362,24 @@ def main():
         'Metric': [
             'Total Queries',
             'Successful Queries',
-            'Average Response Time',
+            'Average Response Time (seconds)',
             'Average Tokens Used',
             'Average Documents Retrieved',
             'Total Feedback',
-            'Positive Feedback Rate',
+            'Positive Feedback Rate (%)',
             'Error Count',
             'Most Used Strategy'
         ],
         'Value': [
-            metrics.get('total_queries', 0),
-            metrics.get('successful_queries', 0),
-            f"{metrics.get('avg_response_time', 0):.2f}s",
+            str(metrics.get('total_queries', 0)),
+            str(metrics.get('successful_queries', 0)),
+            f"{metrics.get('avg_response_time', 0):.2f}",
             f"{metrics.get('avg_tokens', 0):.0f}",
             f"{metrics.get('avg_retrieved_docs', 0):.1f}",
-            metrics.get('total_feedback', 0),
-            f"{metrics.get('satisfaction_rate', 0):.1%}",
-            metrics.get('total_errors', 0),
-            metrics.get('most_used_strategy', 'N/A')
+            str(metrics.get('total_feedback', 0)),
+            f"{metrics.get('satisfaction_rate', 0)*100:.1f}",
+            str(metrics.get('total_errors', 0)),
+            str(metrics.get('most_used_strategy', 'N/A'))
         ]
     }
     

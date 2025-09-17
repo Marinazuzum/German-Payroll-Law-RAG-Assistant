@@ -1,4 +1,5 @@
 import chromadb
+import os
 from chromadb.config import Settings as ChromaSettings
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from rank_bm25 import BM25Okapi
@@ -33,16 +34,52 @@ class HybridRetriever:
         self.embedding_model = SentenceTransformer(settings.embedding_model)
         
         # Initialize ChromaDB
-        self.chroma_client = chromadb.PersistentClient(
-            path=settings.chroma_persist_directory,
-            settings=ChromaSettings(allow_reset=True)
-        )
+        # Try to connect to ChromaDB server first, fallback to local persistent client
+        try:
+            # Check if we're in Docker environment or have CHROMA_SERVER_HOST set
+            chroma_host = getattr(settings, 'chroma_server_host', 'localhost')
+            chroma_port = getattr(settings, 'chroma_server_port', 8000)
+            
+            if chroma_host != 'localhost' or os.getenv('DOCKER_ENVIRONMENT'):
+                # Connect to ChromaDB server
+                self.chroma_client = chromadb.HttpClient(
+                    host=chroma_host,
+                    port=chroma_port
+                )
+                logger.info(f"Connected to ChromaDB server at {chroma_host}:{chroma_port}")
+            else:
+                # Use local persistent client
+                self.chroma_client = chromadb.PersistentClient(
+                    path=settings.chroma_persist_directory,
+                    settings=ChromaSettings(allow_reset=True)
+                )
+                logger.info(f"Using local ChromaDB at {settings.chroma_persist_directory}")
+                
+        except Exception as e:
+            logger.warning(f"Failed to connect to ChromaDB server, falling back to local: {e}")
+            # Fallback to local persistent client
+            self.chroma_client = chromadb.PersistentClient(
+                path=settings.chroma_persist_directory,
+                settings=ChromaSettings(allow_reset=True)
+            )
         
         try:
             self.collection = self.chroma_client.get_collection("german_payroll_law")
         except Exception as e:
-            logger.error(f"Could not load collection: {e}")
-            self.collection = None
+            logger.info(f"Collection not found, creating new one: {e}")
+            try:
+                self.collection = self.chroma_client.create_collection(
+                    name="german_payroll_law",
+                    metadata={"description": "German payroll law documents"}
+                )
+                logger.info("Created new collection 'german_payroll_law'")
+                
+                # Add sample data if collection is empty
+                self._add_sample_data()
+                
+            except Exception as create_error:
+                logger.error(f"Could not create collection: {create_error}")
+                self.collection = None
         
         # Initialize re-ranker
         self.reranker = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
@@ -59,6 +96,35 @@ class HybridRetriever:
         
         # Load documents for keyword search
         self._initialize_keyword_search()
+    
+    def _add_sample_data(self):
+        """Add sample German payroll law data to the collection."""
+        if not self.collection:
+            return
+        
+        logger.info("Adding sample data to collection...")
+        
+        sample_docs = [
+            "Lohnsteuer ist eine Quellensteuer auf Einkünfte aus nichtselbständiger Arbeit. Sie wird vom Arbeitgeber einbehalten und an das Finanzamt abgeführt.",
+            "Überstunden werden wie regulärer Arbeitslohn versteuert. Es gibt keine besonderen steuerlichen Vergünstigungen für Überstundenzuschläge.",
+            "Sozialversicherungsbeiträge umfassen Kranken-, Renten-, Pflege- und Arbeitslosenversicherung. Sie werden paritätisch zwischen Arbeitgeber und Arbeitnehmer aufgeteilt.",
+            "Die Lohnabrechnung erfolgt monatlich und zeigt Brutto- und Nettolohn sowie alle Abzüge wie Lohnsteuer und Sozialversicherungsbeiträge.",
+            "Steuerklassen bestimmen die Höhe der Lohnsteuer. Es gibt sechs Steuerklassen je nach Familienstand und Einkommen."
+        ]
+        
+        try:
+            embeddings = self.embedding_model.encode(sample_docs)
+            
+            self.collection.add(
+                embeddings=embeddings.tolist(),
+                documents=sample_docs,
+                metadatas=[{"source": f"sample_{i}", "file_name": f"sample_{i}.txt"} for i in range(len(sample_docs))],
+                ids=[f"sample_{i}" for i in range(len(sample_docs))]
+            )
+            
+            logger.info(f"Added {len(sample_docs)} sample documents to collection")
+        except Exception as e:
+            logger.error(f"Error adding sample data: {e}")
     
     def _preprocess_text(self, text: str) -> List[str]:
         """Preprocess text for keyword search."""

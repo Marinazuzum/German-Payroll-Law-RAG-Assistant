@@ -28,6 +28,10 @@ class Settings(BaseSettings):
     top_k_retrieval: int = 5
     rerank_top_k: int = 3
     
+    # ChromaDB settings
+    chroma_server_host: str = "localhost"
+    chroma_server_port: int = 8000
+    
     # Monitoring
     enable_monitoring: bool = True
     metrics_file: str = "./data/metrics.json"

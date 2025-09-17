@@ -26,6 +26,14 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
 <style>
+    /* Only fix text areas and inputs for question/answer visibility */
+    .stTextArea textarea, .stTextInput input {
+        color: #1f2937 !important;
+        background-color: white !important;
+        border: 1px solid #d1d5db !important;
+        caret-color: #1f2937 !important;
+    }
+    
     .main-header {
         background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
         padding: 1rem;
@@ -40,6 +48,7 @@ st.markdown("""
         border-radius: 8px;
         border-left: 4px solid #3b82f6;
         margin: 1rem 0;
+        color: #1f2937;
     }
     .answer-box {
         background-color: #f0f9ff;
@@ -47,6 +56,7 @@ st.markdown("""
         border-radius: 8px;
         border: 1px solid #e0f2fe;
         margin: 1rem 0;
+        color: #1f2937;
     }
     .source-box {
         background-color: #fafaf9;
@@ -55,6 +65,7 @@ st.markdown("""
         border-left: 3px solid #78716c;
         margin: 0.5rem 0;
         font-size: 0.9em;
+        color: #1f2937 !important;
     }
     .metric-card {
         background-color: white;
