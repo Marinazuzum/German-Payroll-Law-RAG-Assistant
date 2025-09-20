@@ -37,8 +37,6 @@ An end-to-end Retrieval-Augmented Generation (RAG) application that provides acc
 
 ## 🚀 Quick Start
 
-### Using Docker (Recommended)
-
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
@@ -61,24 +59,6 @@ An end-to-end Retrieval-Augmented Generation (RAG) application that provides acc
    - Monitoring Dashboard: http://localhost:8502
    - ChromaDB API: http://localhost:8000
 
-### Manual Setup
-
-1. **Prerequisites**
-   - Python 3.11+
-   - OpenAI API key
-
-2. **Run setup script**
-   ```bash
-   chmod +x scripts/setup.sh
-   ./scripts/setup.sh
-   ```
-
-3. **Activate virtual environment and start**
-   ```bash
-   source venv/bin/activate
-   streamlit run app/main.py
-   ```
-
 ## 📁 Project Structure
 
 ```
@@ -96,8 +76,6 @@ German-Payroll-Law-RAG-Assistant/
 │   ├── raw/                     # Original PDF documents
 │   ├── processed/               # Processed data and results
 │   └── chroma_db/               # Vector database storage
-├── docker/                      # Docker configuration
-├── scripts/                     # Utility scripts
 ├── requirements.txt             # Python dependencies
 ├── docker-compose.yml           # Container orchestration
 └── README.md                    # This file
@@ -107,15 +85,35 @@ German-Payroll-Law-RAG-Assistant/
 
 ### 1. Adding Documents
 
-Place PDF documents in the `data/raw/` directory and process them:
+#### Prepare PDF Documents
+
+Place your German payroll law PDF documents in the `data/raw/` directory:
 
 ```bash
-# Using Docker
+# Example structure
+data/raw/
+├── einkommensteuergesetz.pdf
+├── sozialgesetzbuch.pdf
+├── arbeitsrecht-grundlagen.pdf
+└── lohnsteuer-richtlinien.pdf
+```
+
+#### Process Documents
+
+```bash
+# Run document processing
 docker-compose run pdf-processor
 
-# Manual
-python src/ingestion/pdf_processor.py
+# Or run specific processing job
+docker-compose exec rag-app python src/ingestion/pdf_processor.py
 ```
+
+#### Verify Processing
+
+Check the processing results:
+- View logs for any errors
+- Check `data/processed/` for output files
+- Verify documents in ChromaDB collection
 
 ### 2. Asking Questions
 
@@ -144,11 +142,11 @@ Evaluate different configurations:
 
 ```bash
 # Run comprehensive evaluation
-python scripts/run_experiments.py --experiment comprehensive
+docker compose exec rag-app python scripts/run_experiments.py --experiment comprehensive
 
 # Test specific strategies
-python scripts/run_experiments.py --experiment prompt
-python scripts/run_experiments.py --experiment retrieval
+docker compose exec rag-app python scripts/run_experiments.py --experiment prompt
+docker compose exec rag-app python scripts/run_experiments.py --experiment retrieval
 ```
 
 ## 🎨 Example Screenshots
@@ -181,20 +179,22 @@ python scripts/run_experiments.py --experiment retrieval
 
 ## 📊 Evaluation Results
 
-### Retrieval Performance
-| Strategy | Precision@3 | Recall@3 | MRR | NDCG@3 |
-|----------|-------------|----------|-----|--------|
-| Vector Only | 0.67 | 0.58 | 0.72 | 0.65 |
-| Hybrid | 0.78 | 0.71 | 0.81 | 0.76 |
-| Hybrid + Rerank | 0.85 | 0.79 | 0.87 | 0.83 |
+| Configuration | Success Rate | Avg Overall Score | Avg Response Time | Avg Tokens |
+|---------------|--------------|-------------------|-------------------|------------|
+| vector_only_basic | 100.0% | 0.383 | 2.65s | 1704 |
+| vector_only_structured | 100.0% | 0.380 | 3.85s | 2118 |
+| vector_only_legal_expert | 100.0% | 0.377 | 4.25s | 2134 |
+| hybrid_basic | 100.0% | 0.510 | 2.21s | 1698 |
+| hybrid_structured | 100.0% | 0.514 | 3.51s | 2059 |
+| hybrid_legal_expert | 100.0% | 0.507 | 3.58s | 2174 |
+| hybrid_with_rerank_basic | 100.0% | 0.603 | 1.56s | 992 |
+| hybrid_with_rerank_structured | 100.0% | 0.597 | 3.23s | 1345 |
+| hybrid_with_rerank_legal_expert | 100.0% | 0.596 | 3.58s | 1488 |
 
-### Answer Quality
-| Prompt Strategy | Semantic Similarity | BLEU Score | Factual Consistency |
-|----------------|-------------------|------------|-------------------|
-| Basic | 0.72 | 0.31 | 0.68 |
-| Structured | 0.81 | 0.42 | 0.79 |
-| Legal Expert | 0.85 | 0.47 | 0.84 |
-| Step-by-Step | 0.79 | 0.39 | 0.76 |
+**Best Configuration:** hybrid_with_rerank_basic
+- Overall Score: 0.603
+- Success Rate: 100.0%
+- Avg Response Time: 1.56s
 
 ## 🔧 Configuration
 
@@ -250,45 +250,6 @@ The system includes comprehensive monitoring with the following metrics:
 - Usage patterns by time
 - Popular queries and strategies
 
-## 🚀 Deployment
-
-### Development
-```bash
-source venv/bin/activate
-streamlit run app/main.py
-```
-
-### Production with Docker
-```bash
-# Basic deployment
-docker-compose up -d
-
-# With nginx reverse proxy
-docker-compose --profile production up -d
-
-# Scale services
-docker-compose up -d --scale rag-app=3
-```
-
-### Health Checks
-- Application: `curl http://localhost:8501/_stcore/health`
-- ChromaDB: `curl http://localhost:8000/api/v1/heartbeat`
-- Nginx: `curl http://localhost/health`
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-python -m pytest
-
-# Run specific test categories
-python -m pytest tests/test_retrieval.py
-python -m pytest tests/test_evaluation.py
-
-# Run with coverage
-python -m pytest --cov=src tests/
-```
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -297,60 +258,18 @@ python -m pytest --cov=src tests/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-### Development Guidelines
-- Follow PEP 8 style guidelines
-- Add docstrings to all functions and classes
-- Include unit tests for new features
-- Update documentation for API changes
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**ChromaDB Connection Error**
-```bash
-# Check if ChromaDB is running
-docker ps | grep chroma
-
-# Restart ChromaDB service
-docker-compose restart chromadb
-```
-
-**OpenAI API Rate Limits**
-- Implement request rate limiting
-- Use GPT-3.5-turbo for cost efficiency
-- Consider caching responses
-
-**Memory Issues with Large PDFs**
-- Adjust chunk size in configuration
-- Process documents in batches
-- Increase Docker memory limits
-
-**Streamlit Port Conflicts**
-```bash
-# Use different ports
-streamlit run app/main.py --server.port 8502
-```
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## License
+This project is licensed under the MIT License.
 
 ## 🙏 Acknowledgments
 
+- [**LLM Zoomcamp Course**](https://github.com/DataTalksClub/llm-zoomcamp)
+- [**DataTalks.Club**](https://datatalks.club/)
 - OpenAI for GPT models
 - ChromaDB for vector storage
 - Streamlit for the web interface
 - LangChain for RAG framework components
 - HuggingFace for embedding models
-
-## 📞 Support
-
-For questions, issues, or contributions:
-
-- **Issues**: [GitHub Issues](../../issues)
-- **Discussions**: [GitHub Discussions](../../discussions)
-- **Documentation**: [Wiki](../../wiki)
 
 ---
 

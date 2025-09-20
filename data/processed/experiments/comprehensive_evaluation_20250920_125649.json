@@ -1,0 +1,1018 @@
+{
+  "experiment_type": "comprehensive_evaluation",
+  "dataset_size": 3,
+  "retrieval_strategies": [
+    "vector_only",
+    "hybrid",
+    "hybrid_with_rerank"
+  ],
+  "prompt_strategies": [
+    "basic",
+    "structured",
+    "legal_expert"
+  ],
+  "results": {
+    "vector_only_basic": [
+      {
+        "query": "Wie wird das Gehalt in Deutschland versteuert?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 2.6830060482025146,
+        "tokens_used": 2075,
+        "evaluation_metrics": {
+          "query": "Wie wird das Gehalt in Deutschland versteuert?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.0,
+            "precision_at_5": 0.0,
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.6563039422035217,
+            "answer_relevance": 0.4896049499511719,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.2,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.0,
+            "answer_score": 0.3819696307182312,
+            "overall_score": 0.1909848153591156
+          },
+          "evaluation_timestamp": "2025-09-20T12:53:12.164633"
+        }
+      },
+      {
+        "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 2.2224419116973877,
+        "tokens_used": 1480,
+        "evaluation_metrics": {
+          "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.3333333333333333,
+            "precision_at_5": 0.4,
+            "recall_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 0.3333333333333333
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.44782790541648865,
+            "answer_relevance": 0.40839189291000366,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.16666666666666666,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.5555555555555555,
+            "answer_score": 0.2854065994421641,
+            "overall_score": 0.42048107749885977
+          },
+          "evaluation_timestamp": "2025-09-20T12:53:19.443102"
+        }
+      },
+      {
+        "query": "Wie funktioniert die Lohnabrechnung?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 3.047051191329956,
+        "tokens_used": 1557,
+        "evaluation_metrics": {
+          "query": "Wie funktioniert die Lohnabrechnung?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.6666666666666666,
+            "precision_at_5": 0.6,
+            "recall_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.5847877264022827,
+            "answer_relevance": 0.4763837456703186,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.125,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.7222222222222222,
+            "answer_score": 0.35372382402420044,
+            "overall_score": 0.5379730231232114
+          },
+          "evaluation_timestamp": "2025-09-20T12:53:27.477315"
+        }
+      }
+    ],
+    "vector_only_structured": [
+      {
+        "query": "Wie wird das Gehalt in Deutschland versteuert?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 3.351165533065796,
+        "tokens_used": 2549,
+        "evaluation_metrics": {
+          "query": "Wie wird das Gehalt in Deutschland versteuert?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.0,
+            "precision_at_5": 0.0,
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.6563039422035217,
+            "answer_relevance": 0.4501135051250458,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.2,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.0,
+            "answer_score": 0.36880581577618915,
+            "overall_score": 0.18440290788809457
+          },
+          "evaluation_timestamp": "2025-09-20T12:53:36.700630"
+        }
+      },
+      {
+        "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 3.7701334953308105,
+        "tokens_used": 1837,
+        "evaluation_metrics": {
+          "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.3333333333333333,
+            "precision_at_5": 0.4,
+            "recall_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 0.3333333333333333
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.44782790541648865,
+            "answer_relevance": 0.3551863431930542,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.16666666666666666,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.5555555555555555,
+            "answer_score": 0.26767141620318097,
+            "overall_score": 0.4116134858793682
+          },
+          "evaluation_timestamp": "2025-09-20T12:53:45.847442"
+        }
+      },
+      {
+        "query": "Wie funktioniert die Lohnabrechnung?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 4.433727979660034,
+        "tokens_used": 1968,
+        "evaluation_metrics": {
+          "query": "Wie funktioniert die Lohnabrechnung?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.6666666666666666,
+            "precision_at_5": 0.6,
+            "recall_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.5847877264022827,
+            "answer_relevance": 0.5179892778396606,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.125,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.7222222222222222,
+            "answer_score": 0.36759233474731445,
+            "overall_score": 0.5449072784847684
+          },
+          "evaluation_timestamp": "2025-09-20T12:53:55.632910"
+        }
+      }
+    ],
+    "vector_only_legal_expert": [
+      {
+        "query": "Wie wird das Gehalt in Deutschland versteuert?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 4.33189582824707,
+        "tokens_used": 2522,
+        "evaluation_metrics": {
+          "query": "Wie wird das Gehalt in Deutschland versteuert?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.0,
+            "precision_at_5": 0.0,
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "mrr": 0.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.6563039422035217,
+            "answer_relevance": 0.39511239528656006,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.2,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.0,
+            "answer_score": 0.3504721124966939,
+            "overall_score": 0.17523605624834696
+          },
+          "evaluation_timestamp": "2025-09-20T12:54:05.638225"
+        }
+      },
+      {
+        "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 3.448148012161255,
+        "tokens_used": 1961,
+        "evaluation_metrics": {
+          "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.3333333333333333,
+            "precision_at_5": 0.4,
+            "recall_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 0.3333333333333333
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.44782790541648865,
+            "answer_relevance": 0.321194052696228,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.16666666666666666,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.5555555555555555,
+            "answer_score": 0.2563406527042389,
+            "overall_score": 0.4059481041298972
+          },
+          "evaluation_timestamp": "2025-09-20T12:54:14.482866"
+        }
+      },
+      {
+        "query": "Wie funktioniert die Lohnabrechnung?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 4.9749462604522705,
+        "tokens_used": 1919,
+        "evaluation_metrics": {
+          "query": "Wie funktioniert die Lohnabrechnung?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.6666666666666666,
+            "precision_at_5": 0.6,
+            "recall_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 0.5
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.5847877264022827,
+            "answer_relevance": 0.5430509448051453,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.125,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.7222222222222222,
+            "answer_score": 0.3759462237358093,
+            "overall_score": 0.5490842229790158
+          },
+          "evaluation_timestamp": "2025-09-20T12:54:24.793426"
+        }
+      }
+    ],
+    "hybrid_basic": [
+      {
+        "query": "Wie wird das Gehalt in Deutschland versteuert?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 2.7417373657226562,
+        "tokens_used": 1831,
+        "evaluation_metrics": {
+          "query": "Wie wird das Gehalt in Deutschland versteuert?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.0,
+            "precision_at_5": 0.2,
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.5,
+            "mrr": 0.25
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.6563039422035217,
+            "answer_relevance": 0.2993156313896179,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.2,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.08333333333333333,
+            "answer_score": 0.3185398578643799,
+            "overall_score": 0.2009365955988566
+          },
+          "evaluation_timestamp": "2025-09-20T12:54:32.599162"
+        }
+      },
+      {
+        "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 1.1077189445495605,
+        "tokens_used": 1434,
+        "evaluation_metrics": {
+          "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 0.6,
+            "recall_at_1": 0.5,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.44782790541648865,
+            "answer_relevance": 0.41568121314048767,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.16666666666666666,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.28783637285232544,
+            "overall_score": 0.6439181864261627
+          },
+          "evaluation_timestamp": "2025-09-20T12:54:39.229838"
+        }
+      },
+      {
+        "query": "Wie funktioniert die Lohnabrechnung?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 2.77921724319458,
+        "tokens_used": 1828,
+        "evaluation_metrics": {
+          "query": "Wie funktioniert die Lohnabrechnung?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 1.0,
+            "recall_at_1": 0.3333333333333333,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.5847877264022827,
+            "answer_relevance": 0.5206856727600098,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.125,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.3684911330540975,
+            "overall_score": 0.6842455665270487
+          },
+          "evaluation_timestamp": "2025-09-20T12:54:47.601000"
+        }
+      }
+    ],
+    "hybrid_structured": [
+      {
+        "query": "Wie wird das Gehalt in Deutschland versteuert?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 4.01006007194519,
+        "tokens_used": 2139,
+        "evaluation_metrics": {
+          "query": "Wie wird das Gehalt in Deutschland versteuert?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.0,
+            "precision_at_5": 0.2,
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.5,
+            "mrr": 0.25
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.6563039422035217,
+            "answer_relevance": 0.46765878796577454,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.2,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.08333333333333333,
+            "answer_score": 0.37465424338976544,
+            "overall_score": 0.22899378836154938
+          },
+          "evaluation_timestamp": "2025-09-20T12:54:56.829177"
+        }
+      },
+      {
+        "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 3.4705543518066406,
+        "tokens_used": 1846,
+        "evaluation_metrics": {
+          "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 0.6,
+            "recall_at_1": 0.5,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.44782790541648865,
+            "answer_relevance": 0.3698018193244934,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.16666666666666666,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.27254324158032733,
+            "overall_score": 0.6362716207901636
+          },
+          "evaluation_timestamp": "2025-09-20T12:55:05.346611"
+        }
+      },
+      {
+        "query": "Wie funktioniert die Lohnabrechnung?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 3.0497937202453613,
+        "tokens_used": 2192,
+        "evaluation_metrics": {
+          "query": "Wie funktioniert die Lohnabrechnung?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 1.0,
+            "recall_at_1": 0.3333333333333333,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.5847877264022827,
+            "answer_relevance": 0.4770146906375885,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.125,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.3539341390132904,
+            "overall_score": 0.6769670695066452
+          },
+          "evaluation_timestamp": "2025-09-20T12:55:13.687788"
+        }
+      }
+    ],
+    "hybrid_legal_expert": [
+      {
+        "query": "Wie wird das Gehalt in Deutschland versteuert?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 3.406109571456909,
+        "tokens_used": 2250,
+        "evaluation_metrics": {
+          "query": "Wie wird das Gehalt in Deutschland versteuert?",
+          "retrieval_metrics": {
+            "precision_at_1": 0.0,
+            "precision_at_3": 0.0,
+            "precision_at_5": 0.2,
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.5,
+            "mrr": 0.25
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.6563039422035217,
+            "answer_relevance": 0.3309364318847656,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.2,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.08333333333333333,
+            "answer_score": 0.32908012469609577,
+            "overall_score": 0.20620672901471454
+          },
+          "evaluation_timestamp": "2025-09-20T12:55:22.501602"
+        }
+      },
+      {
+        "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 3.256208658218384,
+        "tokens_used": 1933,
+        "evaluation_metrics": {
+          "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 0.6,
+            "recall_at_1": 0.5,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.44782790541648865,
+            "answer_relevance": 0.3512432873249054,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.16666666666666666,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.26635706424713135,
+            "overall_score": 0.6331785321235657
+          },
+          "evaluation_timestamp": "2025-09-20T12:55:30.833761"
+        }
+      },
+      {
+        "query": "Wie funktioniert die Lohnabrechnung?",
+        "retrieval_count": 5,
+        "answer_generated": true,
+        "response_time": 4.090301990509033,
+        "tokens_used": 2340,
+        "evaluation_metrics": {
+          "query": "Wie funktioniert die Lohnabrechnung?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 1.0,
+            "recall_at_1": 0.3333333333333333,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.5847877264022827,
+            "answer_relevance": 0.5030616521835327,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.125,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.36261645952860516,
+            "overall_score": 0.6813082297643026
+          },
+          "evaluation_timestamp": "2025-09-20T12:55:40.917345"
+        }
+      }
+    ],
+    "hybrid_with_rerank_basic": [
+      {
+        "query": "Wie wird das Gehalt in Deutschland versteuert?",
+        "retrieval_count": 3,
+        "answer_generated": true,
+        "response_time": 1.3757405281066895,
+        "tokens_used": 1019,
+        "evaluation_metrics": {
+          "query": "Wie wird das Gehalt in Deutschland versteuert?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 0.3333333333333333,
+            "precision_at_5": 0.3333333333333333,
+            "recall_at_1": 0.5,
+            "recall_at_3": 0.5,
+            "recall_at_5": 0.5,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.6563039422035217,
+            "answer_relevance": 0.49406111240386963,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.2,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.611111111111111,
+            "answer_score": 0.3834550182024638,
+            "overall_score": 0.4972830646567874
+          },
+          "evaluation_timestamp": "2025-09-20T12:55:47.174245"
+        }
+      },
+      {
+        "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+        "retrieval_count": 3,
+        "answer_generated": true,
+        "response_time": 0.9921591281890869,
+        "tokens_used": 772,
+        "evaluation_metrics": {
+          "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 1.0,
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.44782790541648865,
+            "answer_relevance": 0.3450703024864197,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.16666666666666666,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.2642994026343028,
+            "overall_score": 0.6321497013171514
+          },
+          "evaluation_timestamp": "2025-09-20T12:55:52.632133"
+        }
+      },
+      {
+        "query": "Wie funktioniert die Lohnabrechnung?",
+        "retrieval_count": 3,
+        "answer_generated": true,
+        "response_time": 2.3061540126800537,
+        "tokens_used": 1186,
+        "evaluation_metrics": {
+          "query": "Wie funktioniert die Lohnabrechnung?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 1.0,
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.5847877264022827,
+            "answer_relevance": 0.4858357310295105,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.125,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.3568744858105977,
+            "overall_score": 0.6784372429052988
+          },
+          "evaluation_timestamp": "2025-09-20T12:55:59.719253"
+        }
+      }
+    ],
+    "hybrid_with_rerank_structured": [
+      {
+        "query": "Wie wird das Gehalt in Deutschland versteuert?",
+        "retrieval_count": 3,
+        "answer_generated": true,
+        "response_time": 2.406104564666748,
+        "tokens_used": 1367,
+        "evaluation_metrics": {
+          "query": "Wie wird das Gehalt in Deutschland versteuert?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 0.3333333333333333,
+            "precision_at_5": 0.3333333333333333,
+            "recall_at_1": 0.5,
+            "recall_at_3": 0.5,
+            "recall_at_5": 0.5,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.6563039422035217,
+            "answer_relevance": 0.3846926689147949,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.2,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.611111111111111,
+            "answer_score": 0.3469988703727722,
+            "overall_score": 0.47905499074194163
+          },
+          "evaluation_timestamp": "2025-09-20T12:56:07.115530"
+        }
+      },
+      {
+        "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+        "retrieval_count": 3,
+        "answer_generated": true,
+        "response_time": 3.055710554122925,
+        "tokens_used": 1152,
+        "evaluation_metrics": {
+          "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 1.0,
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.44782790541648865,
+            "answer_relevance": 0.35375678539276123,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.16666666666666666,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.2671948969364166,
+            "overall_score": 0.6335974484682083
+          },
+          "evaluation_timestamp": "2025-09-20T12:56:15.163377"
+        }
+      },
+      {
+        "query": "Wie funktioniert die Lohnabrechnung?",
+        "retrieval_count": 3,
+        "answer_generated": true,
+        "response_time": 4.2246668338775635,
+        "tokens_used": 1516,
+        "evaluation_metrics": {
+          "query": "Wie funktioniert die Lohnabrechnung?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 1.0,
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.5847877264022827,
+            "answer_relevance": 0.49279993772506714,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.125,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.35919588804244995,
+            "overall_score": 0.679597944021225
+          },
+          "evaluation_timestamp": "2025-09-20T12:56:24.284525"
+        }
+      }
+    ],
+    "hybrid_with_rerank_legal_expert": [
+      {
+        "query": "Wie wird das Gehalt in Deutschland versteuert?",
+        "retrieval_count": 3,
+        "answer_generated": true,
+        "response_time": 3.235133171081543,
+        "tokens_used": 1524,
+        "evaluation_metrics": {
+          "query": "Wie wird das Gehalt in Deutschland versteuert?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 0.3333333333333333,
+            "precision_at_5": 0.3333333333333333,
+            "recall_at_1": 0.5,
+            "recall_at_3": 0.5,
+            "recall_at_5": 0.5,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.6563039422035217,
+            "answer_relevance": 0.41492992639541626,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.2,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 0.611111111111111,
+            "answer_score": 0.357077956199646,
+            "overall_score": 0.4840945336553785
+          },
+          "evaluation_timestamp": "2025-09-20T12:56:32.021960"
+        }
+      },
+      {
+        "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+        "retrieval_count": 3,
+        "answer_generated": true,
+        "response_time": 3.7858755588531494,
+        "tokens_used": 1314,
+        "evaluation_metrics": {
+          "query": "Was sind Sozialversicherungsbeitr\u00e4ge?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 1.0,
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.44782790541648865,
+            "answer_relevance": 0.2287059873342514,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.16666666666666666,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.22551129758358002,
+            "overall_score": 0.61275564879179
+          },
+          "evaluation_timestamp": "2025-09-20T12:56:40.892318"
+        }
+      },
+      {
+        "query": "Wie funktioniert die Lohnabrechnung?",
+        "retrieval_count": 3,
+        "answer_generated": true,
+        "response_time": 3.7061426639556885,
+        "tokens_used": 1625,
+        "evaluation_metrics": {
+          "query": "Wie funktioniert die Lohnabrechnung?",
+          "retrieval_metrics": {
+            "precision_at_1": 1.0,
+            "precision_at_3": 1.0,
+            "precision_at_5": 1.0,
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "mrr": 1.0
+          },
+          "answer_metrics": {
+            "semantic_similarity": 0.5847877264022827,
+            "answer_relevance": 0.5584539175033569,
+            "answer_completeness": 0.0,
+            "bleu_score": 0.0,
+            "rouge_l": 0.125,
+            "factual_consistency": 0.0
+          },
+          "composite_scores": {
+            "retrieval_score": 1.0,
+            "answer_score": 0.38108054796854657,
+            "overall_score": 0.6905402739842733
+          },
+          "evaluation_timestamp": "2025-09-20T12:56:49.604895"
+        }
+      }
+    ]
+  },
+  "timestamp": "2025-09-20T12:53:03.323960",
+  "summary": {
+    "vector_only_basic": {
+      "total_queries": 3,
+      "successful_queries": 3,
+      "success_rate": 1.0,
+      "avg_response_time": 2.6508330504099527,
+      "avg_tokens_used": 1704.0,
+      "avg_overall_score": 0.3831463053270623,
+      "avg_retrieval_score": 0.4259259259259259,
+      "avg_answer_score": 0.3403666847281986
+    },
+    "vector_only_structured": {
+      "total_queries": 3,
+      "successful_queries": 3,
+      "success_rate": 1.0,
+      "avg_response_time": 3.8516756693522134,
+      "avg_tokens_used": 2118.0,
+      "avg_overall_score": 0.3803078907507437,
+      "avg_retrieval_score": 0.4259259259259259,
+      "avg_answer_score": 0.3346898555755615
+    },
+    "vector_only_legal_expert": {
+      "total_queries": 3,
+      "successful_queries": 3,
+      "success_rate": 1.0,
+      "avg_response_time": 4.251663366953532,
+      "avg_tokens_used": 2134.0,
+      "avg_overall_score": 0.37675612778575335,
+      "avg_retrieval_score": 0.4259259259259259,
+      "avg_answer_score": 0.3275863296455807
+    },
+    "hybrid_basic": {
+      "total_queries": 3,
+      "successful_queries": 3,
+      "success_rate": 1.0,
+      "avg_response_time": 2.209557851155599,
+      "avg_tokens_used": 1697.6666666666667,
+      "avg_overall_score": 0.5097001161840227,
+      "avg_retrieval_score": 0.6944444444444443,
+      "avg_answer_score": 0.3249557879236009
+    },
+    "hybrid_structured": {
+      "total_queries": 3,
+      "successful_queries": 3,
+      "success_rate": 1.0,
+      "avg_response_time": 3.510136047999064,
+      "avg_tokens_used": 2059.0,
+      "avg_overall_score": 0.5140774928861194,
+      "avg_retrieval_score": 0.6944444444444443,
+      "avg_answer_score": 0.3337105413277944
+    },
+    "hybrid_legal_expert": {
+      "total_queries": 3,
+      "successful_queries": 3,
+      "success_rate": 1.0,
+      "avg_response_time": 3.584206740061442,
+      "avg_tokens_used": 2174.3333333333335,
+      "avg_overall_score": 0.5068978303008609,
+      "avg_retrieval_score": 0.6944444444444443,
+      "avg_answer_score": 0.3193512161572774
+    },
+    "hybrid_with_rerank_basic": {
+      "total_queries": 3,
+      "successful_queries": 3,
+      "success_rate": 1.0,
+      "avg_response_time": 1.55801788965861,
+      "avg_tokens_used": 992.3333333333334,
+      "avg_overall_score": 0.6026233362930792,
+      "avg_retrieval_score": 0.8703703703703703,
+      "avg_answer_score": 0.3348763022157881
+    },
+    "hybrid_with_rerank_structured": {
+      "total_queries": 3,
+      "successful_queries": 3,
+      "success_rate": 1.0,
+      "avg_response_time": 3.2288273175557456,
+      "avg_tokens_used": 1345.0,
+      "avg_overall_score": 0.5974167944104584,
+      "avg_retrieval_score": 0.8703703703703703,
+      "avg_answer_score": 0.32446321845054626
+    },
+    "hybrid_with_rerank_legal_expert": {
+      "total_queries": 3,
+      "successful_queries": 3,
+      "success_rate": 1.0,
+      "avg_response_time": 3.5757171312967935,
+      "avg_tokens_used": 1487.6666666666667,
+      "avg_overall_score": 0.5957968188104806,
+      "avg_retrieval_score": 0.8703703703703703,
+      "avg_answer_score": 0.32122326725059086
+    }
+  }
+}
